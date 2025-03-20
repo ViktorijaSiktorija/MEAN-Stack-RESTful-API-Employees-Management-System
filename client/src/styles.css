@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  background-color: white !important;
+  color: black !important;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+.mat-toolbar {
+  background-color: #ae919b !important;
+  color: white !important;
+}
+button {
+  background-color: #ae919b !important;
+  color: white !important;
+}
+
+.mat-mdc-card.mdc-card {
+  background-color: #898888 !important;
+  color: white !important;
+}
+
+.mat-mdc-card .mdc-card-header {
+  background-color: #493f42 !important;
+  color: white !important;
+}
+
+.mat-mdc-card .mat-mdc-card-content .mat-mdc-table {
+  background-color: #493f42 !important;
+  color: white !important;
+}
+
+.mat-mdc-table .mat-mdc-header-row,
+.mat-mdc-table .mat-mdc-row {
+  background-color: #493f42 !important;
+  color: white !important;
+}
+
+.mat-mdc-table .mat-mdc-cell,
+.mat-mdc-table .mat-mdc-header-cell {
+  background-color: #493f42 !important;
+  color: white !important;
+}
+
+.mat-mdc-table .mdc-data-table__table {
+  background-color: #493f42 !important;
+  color: white !important;
+}
+/* Change radio button background */
+.mat-mdc-radio-button {
+  --mdc-radio-unselected-icon-color: #ae919b !important; /* Change default color */
+  --mdc-radio-selected-icon-color: #493f42 !important; /* Change selected color */
+  --mdc-radio-disabled-icon-color: #aaa !important; /* Change disabled color */
+}
+
+/* Change Label Color */
+.mat-mdc-radio-button .mdc-form-field {
+  color: white !important;
+}
