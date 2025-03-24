@@ -9,20 +9,7 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-edit-employee',
   standalone: true,
   imports: [EmployeeFormComponent, MatCardModule],
-  template: `
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Edit an Employee</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <app-employee-form
-          [initialState]="employee()"
-          (formSubmitted)="editEmployee($event)"
-        ></app-employee-form>
-      </mat-card-content>
-    </mat-card>
-  `,
-  styles: ``,
+  templateUrl: './edit-employee.component.html',
 })
 export class EditEmployeeComponent implements OnInit {
   employee = {} as WritableSignal<Employee>;

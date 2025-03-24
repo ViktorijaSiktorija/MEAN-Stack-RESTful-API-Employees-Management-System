@@ -15,20 +15,6 @@ import {
   ɵɵdefineInjectable
 } from "./chunk-PFLGQ7LY.js";
 
-// node_modules/@angular/cdk/fesm2022/element-705567fe.mjs
-function coerceNumberProperty(value, fallbackValue = 0) {
-  if (_isNumberValue(value)) {
-    return Number(value);
-  }
-  return arguments.length === 2 ? fallbackValue : 0;
-}
-function _isNumberValue(value) {
-  return !isNaN(parseFloat(value)) && !isNaN(Number(value));
-}
-function coerceElement(elementOrRef) {
-  return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
-}
-
 // node_modules/@angular/cdk/fesm2022/platform-610a08ae.mjs
 var hasV8BreakIterator;
 try {
@@ -90,19 +76,6 @@ var Platform = class _Platform {
   }], () => [], null);
 })();
 
-// node_modules/@angular/cdk/fesm2022/backwards-compatibility-bcbe473e.mjs
-function _bindEventWithOptions(renderer, target, eventName, callback, options) {
-  const major = parseInt(VERSION.major);
-  const minor = parseInt(VERSION.minor);
-  if (major > 19 || major === 19 && minor > 0 || major === 0 && minor === 0) {
-    return renderer.listen(target, eventName, callback, options);
-  }
-  target.addEventListener(eventName, callback, options);
-  return () => {
-    target.removeEventListener(eventName, callback, options);
-  };
-}
-
 // node_modules/@angular/cdk/fesm2022/style-loader-51b80670.mjs
 var appsWithLoaders = /* @__PURE__ */ new WeakMap();
 var _CdkPrivateStyleLoader = class __CdkPrivateStyleLoader {
@@ -152,12 +125,39 @@ var _CdkPrivateStyleLoader = class __CdkPrivateStyleLoader {
   }], null, null);
 })();
 
+// node_modules/@angular/cdk/fesm2022/backwards-compatibility-bcbe473e.mjs
+function _bindEventWithOptions(renderer, target, eventName, callback, options) {
+  const major = parseInt(VERSION.major);
+  const minor = parseInt(VERSION.minor);
+  if (major > 19 || major === 19 && minor > 0 || major === 0 && minor === 0) {
+    return renderer.listen(target, eventName, callback, options);
+  }
+  target.addEventListener(eventName, callback, options);
+  return () => {
+    target.removeEventListener(eventName, callback, options);
+  };
+}
+
+// node_modules/@angular/cdk/fesm2022/element-705567fe.mjs
+function coerceNumberProperty(value, fallbackValue = 0) {
+  if (_isNumberValue(value)) {
+    return Number(value);
+  }
+  return arguments.length === 2 ? fallbackValue : 0;
+}
+function _isNumberValue(value) {
+  return !isNaN(parseFloat(value)) && !isNaN(Number(value));
+}
+function coerceElement(elementOrRef) {
+  return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
+}
+
 export {
+  Platform,
+  _CdkPrivateStyleLoader,
+  _bindEventWithOptions,
   coerceNumberProperty,
   _isNumberValue,
-  coerceElement,
-  Platform,
-  _bindEventWithOptions,
-  _CdkPrivateStyleLoader
+  coerceElement
 };
-//# sourceMappingURL=chunk-KGHNYO5E.js.map
+//# sourceMappingURL=chunk-7EZ74L25.js.map

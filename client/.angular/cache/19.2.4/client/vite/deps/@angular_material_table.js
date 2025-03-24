@@ -15,7 +15,7 @@ import {
 } from "./chunk-65RJ5ZZ2.js";
 import {
   MatCommonModule
-} from "./chunk-E6DCJUXY.js";
+} from "./chunk-S2Z5BMX7.js";
 import {
   BidiModule,
   Directionality
@@ -25,7 +25,7 @@ import {
   _isNumberValue,
   coerceElement,
   coerceNumberProperty
-} from "./chunk-KGHNYO5E.js";
+} from "./chunk-7EZ74L25.js";
 import {
   DOCUMENT
 } from "./chunk-EXOEQGAB.js";
