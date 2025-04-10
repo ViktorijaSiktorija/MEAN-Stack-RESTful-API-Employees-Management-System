@@ -22,7 +22,6 @@ import { Employee } from '../employee';
 export class EmployeeFormComponent {
   initialState = input<Employee>();
 
-  @Output() formValuesChanged = new EventEmitter<Employee>();
   @Output() formSubmitted = new EventEmitter<Employee>();
 
   employeeForm;

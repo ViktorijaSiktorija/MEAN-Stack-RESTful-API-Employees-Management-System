@@ -1,0 +1,45 @@
+<form
+  class="employee-form"
+  autocomplete="off"
+  [formGroup]="registerForm"
+  (submit)="submitRegisterForm()"
+>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name" required />
+    <mat-error *ngIf="name.invalid && name.touched">
+      Name must be at least 3 characters long.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email" required />
+    <mat-error *ngIf="email.invalid && email.touched">
+      Email must be at least 5 characters long.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      placeholder="Password"
+      formControlName="password"
+      required
+    />
+    <mat-error *ngIf="password.invalid && password.touched">
+      Password must be at least 5 characters long.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="registerForm.invalid"
+  >
+    Register
+  </button>
+</form>

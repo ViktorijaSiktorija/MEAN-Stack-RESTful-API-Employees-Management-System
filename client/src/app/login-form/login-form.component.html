@@ -1,0 +1,35 @@
+<form
+  class="employee-form"
+  autocomplete="off"
+  [formGroup]="loginForm"
+  (submit)="submitLoginForm()"
+>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email" required />
+    <mat-error *ngIf="email.invalid && email.touched"> Wrong Email </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      placeholder="Password"
+      formControlName="password"
+      required
+    />
+    <mat-error *ngIf="password.invalid && password.touched">
+      Wrong Password
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="loginForm.invalid"
+  >
+    Login
+  </button>
+</form>

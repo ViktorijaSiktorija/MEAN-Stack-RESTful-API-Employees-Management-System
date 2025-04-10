@@ -1,9 +1,11 @@
 import * as dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
-import { connectToDatabasee } from './database';
-import error from 'console';
-import { employeeRouter } from './employee.routes';
+import { connectToDatabase } from './database';
+import error, { log } from 'console';
+import { employeeRouter } from './routers/employee.routes';
+import { userRouter } from './routers/register.routes';
+import { login } from './routers/login.routes';
 
 dotenv.config();
 
@@ -16,11 +18,14 @@ if (!ATLAS_URI) {
   process.exit(1);
 }
 
-connectToDatabasee(ATLAS_URI)
+connectToDatabase(ATLAS_URI)
   .then(() => {
     const app = express();
     app.use(cors());
     app.use('/employees', employeeRouter);
+    app.use('/register', userRouter);
+    app.use('/login', login);
+
     app.listen(5200, () => {
       console.log(`Server running at http://localhost:5200...`);
     });

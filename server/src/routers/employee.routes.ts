@@ -1,11 +1,12 @@
 import * as express from 'express';
 import { ObjectId } from 'mongodb';
-import { collections } from './database';
+import { collections } from '../database';
+import { authenticateJWT } from '../middleware/auth';
 
 export const employeeRouter = express.Router();
 employeeRouter.use(express.json());
 
-employeeRouter.get('/', async (_req, res) => {
+employeeRouter.get('/', authenticateJWT, async (_req, res) => {
   try {
     const employees = await collections?.employees?.find({}).toArray();
     res.status(200).send(employees);
@@ -16,7 +17,7 @@ employeeRouter.get('/', async (_req, res) => {
   }
 });
 
-employeeRouter.get('/:id', async (req, res) => {
+employeeRouter.get('/:id', authenticateJWT, async (req, res) => {
   try {
     const id = req?.params?.id;
     const query = { _id: new ObjectId(id) };
@@ -32,7 +33,7 @@ employeeRouter.get('/:id', async (req, res) => {
   }
 });
 
-employeeRouter.post('/', async (req, res) => {
+employeeRouter.post('/', authenticateJWT, async (req, res) => {
   try {
     const employee = req.body;
     const result = await collections?.employees?.insertOne(employee);
@@ -50,7 +51,7 @@ employeeRouter.post('/', async (req, res) => {
   }
 });
 
-employeeRouter.put('/:id', async (req, res) => {
+employeeRouter.put('/:id', authenticateJWT, async (req, res) => {
   try {
     const id = req?.params?.id;
     const employee = req.body;
@@ -73,7 +74,7 @@ employeeRouter.put('/:id', async (req, res) => {
   }
 });
 
-employeeRouter.delete('/:id', async (req, res) => {
+employeeRouter.delete('/:id', authenticateJWT, async (req, res) => {
   try {
     const id = req?.params?.id;
     const query = { _id: new ObjectId(id) };
